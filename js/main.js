@@ -1,29 +1,27 @@
-const div = document.getElementById('list')
-const btn = document.getElementById('botao')
-const buscar = document.getElementById('buscar')
+const div = document.getElementById("list");
+const btn = document.getElementById("botao");
+const buscar = document.getElementById("buscar");
 
+btn.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (buscar.value != "") {
+    buscar.style.border = "";
 
+    let pedido = new XMLHttpRequest();
+    pedido.open("GET", `https://pokeapi.co/api/v2/pokemon/${buscar.value}`);
+    pedido.send();
+    pedido.addEventListener("load", () => {
+      if (pedido.status == 200) {
+        let pokemon = JSON.parse(pedido.responseText);
 
-btn.addEventListener('click', (e) => {
-  e.preventDefault()
-  console.log('ta funfando')
-  let pedido = new XMLHttpRequest()
-  pedido.open('GET', `https://pokeapi.co/api/v2/pokemon/${buscar.value}`)
-  pedido.send()
-  pedido.addEventListener("load", () => {
-    if (pedido.status == 200) {
-      let pokemon = JSON.parse(pedido.responseText)
-
-      let nome = pokemon.name
-      let foto = pokemon.sprites.front_default
-      let id = pokemon.id
-
-      criaCard(foto, nome, id)
-
-    } else alert('Acho que esse pokémon não existe 😞 \n Tente novamente!')
-  })
-
-})
+        let nome = pokemon.name;
+        let foto = pokemon.sprites.other.dream_world.front_default;
+        let id = pokemon.id;
+        criaCard(foto, nome.toUpperCase(), id);
+      } else alert("Acho que esse pokémon não existe 😞 \n Tente novamente!");
+    });
+  } else buscar.style.border = "2px solid #F11828";
+});
 
 function criaCard(foto, nome, id) {
   div.innerHTML += `
@@ -33,5 +31,6 @@ function criaCard(foto, nome, id) {
     <span class="id-poke">#${id}</span>
     <span class="nome-poke">${nome}</span>
   </div>
-   `
+   `;
 }
+

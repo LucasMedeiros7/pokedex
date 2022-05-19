@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 :root {
@@ -13,41 +16,97 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10rem;
 }
 
-#list {
-  padding: 0.5rem;
-  gap: 10px;
-  justify-content: center;
-  border: 3px solid black;
+.logo {
+  display: flex;
+}
+
+.logo>img {
+  margin: 5.0rem auto 0 auto;
+  max-width: 49.0rem;
+  width: 90%;
+}
+
+form {
+  max-width: 48.7rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.1rem;
+  margin-top: 4.1rem;
+  margin-bottom: 4.5rem;
+}
+
+#buscar {
+  font-size: 1.8rem;
+  text-align: center;
+  background-color: #E5E5E5;
+  height: 6.1rem;
+  border: none;
   border-radius: 2rem;
+  opacity: 0.9;
+  box-shadow: rgba(0, 0, 0, 0.15) 0.2rem 0.2rem 0.3rem;
+}
+
+
+#botao {
+  font-size: 1.6rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  color: #fff;
+  margin: auto;
+  border: none;
+  border-radius: 1rem;
+  width: 17.4rem;
+  height: 3.8rem;
+  background-color: #2A74BA;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+}
+
+#botao:active {
+  box-shadow: none;
+}
+
+
+#list {
+  gap: 2rem;
+  justify-content: center;
   display: flex;
   flex-wrap: wrap;
-  width: 120rem;
+  max-width: 120rem;
+  width: 90%;
 }
 
 .card {
-  padding-top: 1.6rem;
-  border: 1px solid purple;
-  width: 160px;
-  height: 140px;
-
+  width: 23rem;
+  height: 20rem;
+  border: none;
+  background-color: #CE789C;
+  border-radius: 2rem;
 }
 
 .card img {
   display: block;
-  margin: 1.6rem auto 2.5rem auto;
-  width: 80px;
-  height: 4rem;
-  border: 1px solid blue;
+  margin: 1rem auto 1rem auto;
+  width: 13.5rem;
+  height: 13.5rem;
 }
 
 .card>.info {
+  color: #fff;
+  letter-spacing: 0.12rem;
+  font-weight: 300;
+  font-size: 1.2rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
   margin: auto;
-  background-color: grey;
-  width: 80px;
-  height: 10px;
+  background-color: #AF3E6E;
+  width: 17rem;
+  height: 3rem;
+  margin-bottom: 6rem;
+  border-radius: 0.5rem;
 }
