@@ -17,20 +17,26 @@ btn.addEventListener("click", (e) => {
         let nome = pokemon.name;
         let foto = pokemon.sprites.other.dream_world.front_default;
         let id = pokemon.id;
-        criaCard(foto, nome.toUpperCase(), id);
-      } else alert("Acho que esse pokémon não existe 😞 \n Tente novamente!");
+        criaCard(foto, nome, id);
+      } else {
+        alert("Acho que esse pokémon não existe 😞 \n Tente novamente!");
+        buscar.value = '' ;
+      }
     });
   } else buscar.style.border = "2px solid #F11828";
 });
 
 function criaCard(foto, nome, id) {
+
   div.innerHTML += `
-  <div class="card">
+  <div id="${nome.toLowerCase()}" class="card">
   <img src="${foto}" alt="">
   <div class="info">
     <span class="id-poke">#${id}</span>
-    <span class="nome-poke">${nome}</span>
+    <span class="nome-poke">${nome.toUpperCase()}</span>
   </div>
    `;
+
+  buscar.value = '' ;
 }
 
