@@ -8,7 +8,7 @@ btn.addEventListener("click", (e) => {
     buscar.style.border = "";
 
     let pedido = new XMLHttpRequest();
-    pedido.open("GET", `https://pokeapi.co/api/v2/pokemon/${buscar.value}`);
+    pedido.open("GET", `https://pokeapi.co/api/v2/pokemon/${buscar.value.toLowerCase()}`);
     pedido.send();
     pedido.addEventListener("load", () => {
       if (pedido.status == 200) {
