@@ -30,7 +30,7 @@ body {
 
 form {
   max-width: 48.7rem;
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   gap: 2.1rem;
@@ -110,4 +110,25 @@ form {
   height: 3rem;
   margin-bottom: 6rem;
   border-radius: 0.5rem;
+}
+
+#div-modal {
+  display: flex;
+  justify-content: center;
+  padding-top: 25rem;
+  position: absolute;
+  background-color: #918c8ca6;
+  width: 100vw;
+  height: 100vh;
+}
+
+#modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  border-radius: 1rem;
+  background-color: #fff;
+  height: 12rem;
+  width: 40rem;
 }

@@ -1,6 +1,12 @@
 const div = document.getElementById("list");
 const btn = document.getElementById("botao");
 const buscar = document.getElementById("buscar");
+const modal = document.getElementById("div-modal")
+const p = document.getElementById("p")
+
+modal.onclick = () => {
+  modal.style.display = "none"
+}
 
 btn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -10,7 +16,8 @@ btn.addEventListener("click", (e) => {
 
   if (idPoke) {
     if (valor == idPoke.id) {
-      alert(`Este pokémon já está na sua pokédex`)
+      p.innerText = `O ${valor.toLowerCase()} já está na sua pokédex`
+      modal.style.display = 'flex'
       return
     }
   }
@@ -24,18 +31,20 @@ btn.addEventListener("click", (e) => {
     pedido.addEventListener("load", () => {
       if (pedido.status == 200) {
         let pokemon = JSON.parse(pedido.responseText);
-
+        
         let nome = pokemon.name;
         let foto = pokemon.sprites.other.dream_world.front_default;
         let id = pokemon.id;
+        
         criaCard(foto, nome, id);
       } else {
-        alert("Acho que esse pokémon não existe 😞 \n Tente novamente!");
+        p.innerText = 'Este pokémon não existe'
+        modal.style.display = 'flex'
         buscar.value = '';
       }
     });
   } else buscar.style.border = "2px solid #F11828";
-});
+})
 
 function criaCard(foto, nome, id) {
 
