@@ -4,11 +4,22 @@ const buscar = document.getElementById("buscar");
 
 btn.addEventListener("click", (e) => {
   e.preventDefault();
+
+  let valor = buscar.value.toLowerCase()
+  let idPoke = document.getElementById(valor)
+
+  if (idPoke) {
+    if (valor == idPoke.id) {
+      alert(`Este pokémon já está na sua pokédex`)
+      return
+    }
+  }
+
   if (buscar.value != "") {
     buscar.style.border = "";
 
     let pedido = new XMLHttpRequest();
-    pedido.open("GET", `https://pokeapi.co/api/v2/pokemon/${buscar.value.toLowerCase()}`);
+    pedido.open("GET", `https://pokeapi.co/api/v2/pokemon/${valor}`);
     pedido.send();
     pedido.addEventListener("load", () => {
       if (pedido.status == 200) {
@@ -20,7 +31,7 @@ btn.addEventListener("click", (e) => {
         criaCard(foto, nome, id);
       } else {
         alert("Acho que esse pokémon não existe 😞 \n Tente novamente!");
-        buscar.value = '' ;
+        buscar.value = '';
       }
     });
   } else buscar.style.border = "2px solid #F11828";
@@ -37,6 +48,6 @@ function criaCard(foto, nome, id) {
   </div>
    `;
 
-  buscar.value = '' ;
+  buscar.value = '';
 }
 
