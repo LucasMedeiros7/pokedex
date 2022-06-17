@@ -21,8 +21,9 @@ btn.addEventListener("click", (e) => {
 
   if (isNew) getPokemon(nome);
   else if (nome) {
-    p.innerText = `O ${nome[0].toUpperCase() + nome.substring(1).toLowerCase()} 
-    já está na sua pokédex`;
+    p.innerText = `O ${
+      nome[0].toUpperCase() + nome.substring(1).toLowerCase()
+    } já está na sua pokédex`;
 
     p.style.color = "#2A74BA";
     modal.style.display = "flex";
