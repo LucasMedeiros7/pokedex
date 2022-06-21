@@ -49,11 +49,12 @@ function render(pokemon) {
 
   div.innerHTML += `
     <div id="${pokemon.key}" class="card">
-     <img src="${pokemon.image}" alt="">
-    <div class="info">
-       <span class="id-poke">#${pokemon.id}</span>
-      <span class="nome-poke">${
-        nome[0].toUpperCase() + nome.substring(1)
-      }</span>
+      <img src="${pokemon.image}" alt="">
+      <div class="info">
+        <span class="id-poke">#${pokemon.id}</span>
+        <span class="nome-poke">${
+          nome[0].toUpperCase() + nome.substring(1)
+        }</span>
+      </div>
     </div>`;
 }
