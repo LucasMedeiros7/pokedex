@@ -8,23 +8,17 @@ const p = document.getElementById("p");
 btn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  let isNew;
+  const nome = input.value != "" ? input.value : false;
+  const isNew =
+    pokemons.filter((pokemon) => pokemon.name === nome.toLowerCase()).length ===
+    0;
 
-  const nome = input.value === "" ? false : input.value;
-
-  if (nome) {
-    input.style.border = "initial";
-    isNew =
-      pokemons.filter((pokemon) => pokemon.name === nome.toLowerCase())
-        .length === 0;
-  }
-
-  if (isNew) getPokemon(nome);
-  else if (nome) {
+  if (isNew) {
+    getPokemon(nome);
+  } else if (nome) {
     p.innerText = `O ${
       nome[0].toUpperCase() + nome.substring(1).toLowerCase()
     } já está na sua pokédex`;
-
     p.style.color = "#2A74BA";
     modal.style.display = "flex";
     input.value = "";

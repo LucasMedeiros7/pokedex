@@ -10,21 +10,19 @@ function getPokemon(nome) {
     `https://pokeapi.co/api/v2/pokemon/${nome.toLowerCase()}`
   );
   request.send();
-
   request.addEventListener("load", () => {
-    if (request.status == 200) {
+    try {
       const pkm = JSON.parse(request.responseText);
-
       createPokemon(
         pkm.id,
         pkm.name,
         pkm.sprites.other.dream_world.front_default
       );
-    } else {
+    } catch {
+      input.value = "";
       p.innerText = "Este pokémon não existe";
       p.style.color = "red";
       modal.style.display = "flex";
-      input.value = "";
     }
   });
 }
